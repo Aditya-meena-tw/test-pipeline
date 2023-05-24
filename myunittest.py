@@ -16,7 +16,7 @@ def factorial(n):
 
 class FactorialTestCase(unittest.TestCase):
     def test_factorial_positive(self):
-        breakpoint()
+        
         result = factorial(10)
         self.assertEqual(result, 3628800)
     
