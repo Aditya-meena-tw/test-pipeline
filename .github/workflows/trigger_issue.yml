@@ -1,0 +1,17 @@
+name: Issue Trigger Workflow
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print Issue Info
+        run: |
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"     
