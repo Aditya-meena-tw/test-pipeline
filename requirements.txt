@@ -1,2 +1,2 @@
-unittest
-coverage
+unittest==0.0
+coverage==7.2.6
