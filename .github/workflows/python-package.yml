@@ -1,0 +1,38 @@
+name: Build, Test, and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - satge
+  issues:
+    types:
+      - opened
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with: 
+          python-version: '3.8'  # Replace 'x' with the desired Python version
+      - name: Install Flake8
+        run: pip install flake8
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: python3 manage.py test
+
+      - name: Deploy
+        run: echo "deploying..........." 
